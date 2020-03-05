@@ -10,19 +10,21 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     lateinit var diceImage : ImageView
-    //lateinit var diceImage : ImageView
+    lateinit var diceImage2 : ImageView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val diceImage : ImageView = findViewById(R.id.dice_image)
+        //var diceImage : ImageView = findViewById(R.id.dice_image)
         val rollButton: Button = findViewById(R.id.roll_button)
         rollButton.setOnClickListener { rollDice() }
 
-        val dice_image: ImageView = findViewById(R.id.dice_image)
+        //val dice_image: ImageView = findViewById(R.id.dice_image)
+        diceImage = findViewById(R.id.dice_image)
+        diceImage2 =findViewById(R.id.dice_image)
     }
 
     private fun rollDice(){
-        val diceImage: ImageView = findViewById(R.id.dice_image)
+       /* val diceImage: ImageView = findViewById(R.id.dice_image)
         //val resultText: TextView = findViewById(R.id.result_text)
         val randomInt = (1..6).random()
        val drawableRes = when (randomInt){
@@ -32,8 +34,8 @@ class MainActivity : AppCompatActivity() {
            4 -> R.drawable.dice_4
            5 -> R.drawable.dice_5
            else -> R.drawable.dice_6
-       }
-        diceImage.setImageResource(drawableRes)
+       }*/
+       // diceImage.setImageResource(drawableRes)
 
        /* resultText.text = randomInt.toString()
 
@@ -53,13 +55,13 @@ class MainActivity : AppCompatActivity() {
             }
         }*/
 
-        diceImage.setImageResource(drawableRes)
+        diceImage.setImageResource(drawableRes())
 
-        diceImage.setImageResource(imagerand())
+        diceImage2.setImageResource(drawableRes())
 
 
     }
-    private fun imagerand(): Int{
+    private fun drawableRes(): Int{
         val randomInt = (1..6).random()
         val drawableRes = when (randomInt){
             1 -> R.drawable.dice_1
